@@ -16,4 +16,4 @@ Post.propTypes = {
   title: PropTypes.string.isRequired,
   submission: PropTypes.string.isRequired
 };
-export default Ticket;
+export default Post;
