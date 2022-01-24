@@ -6,6 +6,7 @@ function NewPostForm(props){
   
   function handleNewPostFormSubmission(event){
     event.preventDefault();
+    props.OnNewPostCreation({title: event.target.title.value, submission: event.target.submission.value, id: v4()});
   }
 
   return (
