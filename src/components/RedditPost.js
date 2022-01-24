@@ -6,3 +6,5 @@ function RedditPost() {
     <Post />
   );
 }
+
+export default RedditPost;
