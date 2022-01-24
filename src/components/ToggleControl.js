@@ -18,6 +18,12 @@ class ToggleControl extends React.Component {
     }));
   }
 
+  handleAddingNewPostToList = (newPost) => {
+    const newMainPostList = this.state.mainPostList.concat(newPost);
+    this.setState({mainPostList: newMainPostList,
+      formVisibleOnPage:false});
+  }
+  
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
