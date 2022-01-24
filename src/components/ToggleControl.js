@@ -7,7 +7,8 @@ class ToggleControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false
+      formVisibleOnPage: false,
+      mainPostList: []
     };
   }
 
@@ -24,7 +25,7 @@ class ToggleControl extends React.Component {
       currentlyVisibleState= <NewPostForm />
       buttonText = "Back to posts";
     } else{
-      currentlyVisibleState= <RedditPost />
+      currentlyVisibleState= <RedditPost postList={this.state.mainPostList} />
       buttonText = "Post something";
 
     }
