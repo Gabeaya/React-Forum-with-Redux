@@ -26,6 +26,11 @@ class ToggleControl extends React.Component {
       formVisibleOnPage:false});
   }
 
+  handleChangingSelectedPost = (id) => {
+    const selectedPost = this.state.mainPostList.filter(post => post.id === id)[0];
+    this.setState({selectedPost: selectedPost});
+  }
+  
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
