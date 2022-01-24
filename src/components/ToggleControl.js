@@ -9,9 +9,11 @@ class ToggleControl extends React.Component {
     this.state = {
       formVisibleOnPage: false
     };
-
   }
 
+  handleClick = () => {
+    this.setState({formVisibleOnPage:true});
+  }
   render(){
     let currentlyVisibleState = null;
     if (this.state.formVisibleOnPage) {
