@@ -8,7 +8,8 @@ class ToggleControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainPostList: []
+      mainPostList: [],
+      selectedPost: null
     };
   }
 
