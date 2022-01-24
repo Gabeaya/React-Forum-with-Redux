@@ -6,7 +6,7 @@ function NewPostForm(props){
   
   function handleNewPostFormSubmission(event){
     event.preventDefault();
-    props.OnNewPostCreation({title: event.target.title.value, submission: event.target.submission.value, id: v4()});
+    props.onNewPostCreation({title: event.target.title.value, submission: event.target.submission.value, id: v4()});
   }
 
   return (
@@ -15,13 +15,13 @@ function NewPostForm(props){
         <input
           type='text'
           name='title'
-          placeholder='Pair Names' />
+          placeholder='TITLE' />
         <textarea
           type='text'
           name='submission'
-          placeholder='Location' />
+          placeholder='WRITE SOMETHING' />
         
-        <button type='submit'>Help!</button>
+        <button type='submit'>POST TO THE INTERNET FOREVER!</button>
       </form>
     </React.Fragment>
   );
