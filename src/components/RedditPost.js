@@ -3,7 +3,7 @@ import Post from "./Post";
 
 function RedditPost() {
   return(
-    <Post />
+    <Post/>
   );
 }
 

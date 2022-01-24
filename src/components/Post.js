@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 function Post(props){
-  const title = "Worst Day";
+
   return (
     <React.Fragment>
       <h2>{props.title}</h2>
