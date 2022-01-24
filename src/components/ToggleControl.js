@@ -23,12 +23,12 @@ class ToggleControl extends React.Component {
     this.setState({mainPostList: newMainPostList,
       formVisibleOnPage:false});
   }
-  
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.formVisibleOnPage) {
-      currentlyVisibleState= <NewPostForm />
+      currentlyVisibleState= <NewPostForm onNewPostCreation={this.handleAddingNewPostToList}/>
       buttonText = "Back to posts";
     } else{
       currentlyVisibleState= <RedditPost postList={this.state.mainPostList} />
