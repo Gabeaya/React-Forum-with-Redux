@@ -16,20 +16,22 @@ class ToggleControl extends React.Component {
       formVisibleOnPage: !prevState.formVisibleOnPage
     }));
   }
-  
+
   render(){
     let currentlyVisibleState = null;
-    let postButton = null;
+    let buttonText = null;
     if (this.state.formVisibleOnPage) {
       currentlyVisibleState= <NewPostForm />
+      buttonText = "Back to posts";
     } else{
       currentlyVisibleState= <RedditPost />
-      postButton = <button onClick={this.handelClick}>Post Something</button>
+      buttonText = "Post something";
+
     }
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        {postButton}
+        <button onClick={this.handelClick}>{buttonText}</button>
       </React.Fragment>
     );
   }
