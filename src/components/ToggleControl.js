@@ -1,6 +1,7 @@
 import React from 'react';
 import NewPostForm from './NewPostForm';
 import PostList from './PostList';
+import PostDetail from './PostDetail';
 
 class ToggleControl extends React.Component {
 
@@ -30,15 +31,17 @@ class ToggleControl extends React.Component {
     const selectedPost = this.state.mainPostList.filter(post => post.id === id)[0];
     this.setState({selectedPost: selectedPost});
   }
-  
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.formVisibleOnPage) {
+    if (this.state.selectedPost != null) {
+      currentlyVisibleState = <PostDetail post = {this.state.selectedPost} />
+    }else if(this.state.formVisibleOnPage) {
       currentlyVisibleState= <NewPostForm onNewPostCreation={this.handleAddingNewPostToList}/>
       buttonText = "Back to posts";
     } else{
-      currentlyVisibleState= <PostList postList={this.state.mainPostList} />
+      currentlyVisibleState= <PostList postList={this.state.mainPostList} onTicketSelection={this.handleChangingSelectedPost} />
       buttonText = "Post something";
 
     }
