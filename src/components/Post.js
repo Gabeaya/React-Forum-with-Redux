@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 function Post(props){
   const title = "Worst Day";
@@ -11,4 +12,8 @@ function Post(props){
   );
 }
 
+Post.propTypes = {
+  title: PropTypes.string.isRequired,
+  submission: PropTypes.string.isRequired
+};
 export default Ticket;
