@@ -1,4 +1,4 @@
-import postListReducer from '../../reducers/ticket-list-reducer';
+import postListReducer from '../../reducers/post-list-reducer';
 
 describe('postListReducer', () => {
   test('Should return default state if there is no action type passed into the reducer', () => {
