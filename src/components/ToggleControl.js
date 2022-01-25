@@ -44,11 +44,12 @@ class ToggleControl extends React.Component {
     let buttonText = null;
     if (this.state.selectedPost != null) {
       currentlyVisibleState = <PostDetail post = {this.state.selectedPost} />
-    }else if(this.state.formVisibleOnPage) {
+      buttonText = "back to posts";
+    } else if(this.state.formVisibleOnPage) {
       currentlyVisibleState= <NewPostForm onNewPostCreation={this.handleAddingNewPostToList}/>
       buttonText = "Back to posts";
     } else{
-      currentlyVisibleState= <PostList postList={this.state.mainPostList} onTicketSelection={this.handleChangingSelectedPost} />
+      currentlyVisibleState= <PostList postList={this.state.mainPostList} onPostSelection={this.handleChangingSelectedPost} />
       buttonText = "Post something";
 
     }
