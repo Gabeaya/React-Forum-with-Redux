@@ -7,7 +7,9 @@ function PostList(props) {
     <React.Fragment>
       <hr />
       {props.postList.map((post, index) =>
-        <Post title={post.title}
+        <Post 
+          whenPostClicked = { props.onPostSelection} 
+          title={post.title}
           submission={post.submission}
           key={index} />
         )}
@@ -15,6 +17,7 @@ function PostList(props) {
   );
 }
 PostList.propTypes = {
-  postList:PropTypes.array
+  postList:PropTypes.array,
+  onPostSelection: PropTypes.func
 };
 export default PostList;
