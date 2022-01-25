@@ -15,9 +15,16 @@ class ToggleControl extends React.Component {
   }
 
   handleClick = () => {
-    this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage
-    }));
+    if (this.state.selectedPost != null) {
+      this.setState({
+        formVisibleOnPage: false,
+        selectedPost: null
+      });
+    } else {
+      this.setState(prevState => ({
+        formVisibleOnPage: !prevState.formVisibleOnPage
+      }));
+    }
   }
 
   handleAddingNewPostToList = (newPost) => {
