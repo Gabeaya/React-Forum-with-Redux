@@ -6,7 +6,7 @@ function NewPostForm(props){
   
   function handleNewPostFormSubmission(event){
     event.preventDefault();
-    props.onNewPostCreation({title: event.target.title.value, submission: event.target.submission.value, id: v4()});
+    props.onNewPostCreation({title: event.target.title.value, submission: event.target.submission.value, vote: parseInt(event.target.vote.value), id: v4()});
   }
 
   return (
@@ -20,7 +20,12 @@ function NewPostForm(props){
           type='text'
           name='submission'
           placeholder='WRITE SOMETHING' />
-        
+        <input
+          type='hidden'
+          name='vote' 
+          defaultValue={1}
+          disabled
+          />
         <button type='submit'>POST TO THE INTERNET FOREVER!</button>
       </form>
     </React.Fragment>

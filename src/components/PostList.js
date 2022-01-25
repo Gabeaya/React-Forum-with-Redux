@@ -11,6 +11,7 @@ function PostList(props) {
           whenPostClicked = { props.onPostSelection} 
           title={post.title}
           submission={post.submission}
+          vote={post.vote}
           id={post.id}
           key={post.id} />
         )}
