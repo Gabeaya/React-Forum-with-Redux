@@ -5,15 +5,20 @@ function Post(props){
 
   return (
     <React.Fragment>
-      <h2>{props.title}</h2>
-      <p>{props.submission}</p>
-      <hr/>
+      <div onClick = { () => props.whenPostClicked(props.id)}>
+        <h2>{props.title}</h2>
+        <p>{props.submission}</p>
+        <hr/>
+      </div>
+      
     </React.Fragment>
   );
 }
 
 Post.propTypes = {
   title: PropTypes.string.isRequired,
-  submission: PropTypes.string.isRequired
+  submission: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  whenPostClicked: PropTypes.func
 };
 export default Post;
