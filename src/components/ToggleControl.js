@@ -45,11 +45,19 @@ class ToggleControl extends React.Component {
     console.log(selectedPost)
     this.setState({selectedPost: selectedPost});
   }
+
+  handleUpVote = (id) => {
+    const selectedPost = this.state.mainPostList.filter(post => post.id ===id)[0];
+    selectedPost.vote +=1;
+    console.log(selectedPost)
+    this.setState({selectedPost: selectedPost}); 
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.selectedPost != null) {
-      currentlyVisibleState = <PostDetail post = {this.state.selectedPost} onClickingDownVote={this.handleDownVote}/>
+      currentlyVisibleState = <PostDetail post = {this.state.selectedPost} onClickingDownVote={this.handleDownVote}onClickingUpVote={this.handleUpVote}/>
       buttonText = "back to posts";
     } else if(this.state.formVisibleOnPage) {
       currentlyVisibleState= <NewPostForm onNewPostCreation={this.handleAddingNewPostToList}/>

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function PostDetail(props){
-  const { post, onClickingDownVote }= props;
+  const { post, onClickingDownVote, onClickingUpVote }= props;
   return(
     <React.Fragment>
       <h1>Details</h1>
@@ -10,6 +10,7 @@ function PostDetail(props){
       <p>{post.submission}</p>
       <p>Votes: {post.vote}</p>
       <button onClick={() => onClickingDownVote(post.id)}>-</button>
+      <button onClick={() => onClickingUpVote(post.id)}>+</button>
       <hr />
     </React.Fragment>
     
@@ -18,7 +19,8 @@ function PostDetail(props){
 
 PostDetail.propTypes = {
   post: PropTypes.object,
-  onClickingDownVote: PropTypes.func
+  onClickingDownVote: PropTypes.func,
+  onClickingUpVote: PropTypes.func
 };
 
 export default PostDetail;
