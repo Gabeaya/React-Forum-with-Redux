@@ -39,6 +39,11 @@ class ToggleControl extends React.Component {
     this.setState({selectedPost: selectedPost});
   }
 
+  handleDownVote = (id) => {
+    const selectedPost = this.state.mainPostList.filter(post => post.id ===id)[0];
+    selectedPost.votes -=1;
+    this.setState({selectedPost: selectedPost});
+  }
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -49,7 +54,7 @@ class ToggleControl extends React.Component {
       currentlyVisibleState= <NewPostForm onNewPostCreation={this.handleAddingNewPostToList}/>
       buttonText = "Back to posts";
     } else{
-      currentlyVisibleState= <PostList postList={this.state.mainPostList} onPostSelection={this.handleChangingSelectedPost} />
+      currentlyVisibleState= <PostList postList={this.state.mainPostList} onPostSelection={this.handleChangingSelectedPost} onDownVote={this.handleDownVote}/>
       buttonText = "Post something";
 
     }
