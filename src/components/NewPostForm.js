@@ -23,7 +23,7 @@ function NewPostForm(props){
         <input
           type='hidden'
           name='vote' 
-          defaultValue={1}
+          defaultValue={0}
           disabled
           />
         <button type='submit'>POST TO THE INTERNET FOREVER!</button>
