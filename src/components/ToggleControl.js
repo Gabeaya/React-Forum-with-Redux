@@ -3,6 +3,7 @@ import NewPostForm from './NewPostForm';
 import PostList from './PostList';
 import PostDetail from './PostDetail';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class ToggleControl extends React.Component {
 
@@ -98,6 +99,16 @@ class ToggleControl extends React.Component {
 
 }
 
-ToggleControl = connect()(ToggleControl);
+ToggleControl.propTypes = {
+  mainPostList: PropTypes.object
+};
+
+const mapStateToProps = state => {
+  return {
+    mainPostList: state
+  }
+}
+
+ToggleControl = connect(mapStateToProps)(ToggleControl);
 
 export default ToggleControl;
