@@ -10,7 +10,6 @@ class ToggleControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainPostList: [],
       selectedPost: null
     };
   }
@@ -29,10 +28,17 @@ class ToggleControl extends React.Component {
   }
 
   handleAddingNewPostToList = (newPost) => {
-    const newMainPostList = this.state.mainPostList.concat(newPost);
-    this.setState({
-      mainPostList: newMainPostList,
-      formVisibleOnPage:false});
+    const { dispatch } = this.props;
+    const { id, title, submission, vote} = newPost;
+    const action = {
+      type: 'ADD_POST',
+      id: id,
+      title: title,
+      submission: submission,
+      vote: vote,
+    }
+    dispatch(action);
+    this.setState({formVisibleOnPage:false});
   }
 
   handleChangingSelectedPost = (id) => {
