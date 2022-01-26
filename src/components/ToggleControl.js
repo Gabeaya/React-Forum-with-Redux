@@ -102,7 +102,7 @@ class ToggleControl extends React.Component {
 ToggleControl.propTypes = {
   mainPostList: PropTypes.object
 };
-
+//this makes our mainpostlist an object and not an array
 const mapStateToProps = state => {
   return {
     mainPostList: state
