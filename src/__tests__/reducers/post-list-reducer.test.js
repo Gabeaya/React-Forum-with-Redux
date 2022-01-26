@@ -34,4 +34,23 @@ describe('postListReducer', () => {
     });
   });
 
+  test('Should successfully increment vote to mainPostList', () => {
+    const { title, submission, vote, id } = postData;
+    action = {
+      type: 'INCREMENT',
+      title: title,
+      submission: submission,
+      vote: vote,
+      id: id
+    };
+    
+    expect(postListReducer({}, action)).toEqual({
+      [id] : {
+        title: title,
+        submission: submission,
+        vote: vote + 1,
+        id: id 
+      }
+    });
+  });
 });
