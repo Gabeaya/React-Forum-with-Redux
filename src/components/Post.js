@@ -8,7 +8,7 @@ function Post(props){
       <div onClick = { () => props.whenPostClicked(props.id)}>
         <h2>{props.title} UP+ / Down- Votes: {props.vote}</h2>
         <p>{props.submission}</p>
-
+        <p><em>{props.timeStamp}</em></p>
         <hr/>
       </div>
       
@@ -21,6 +21,7 @@ Post.propTypes = {
   submission: PropTypes.string.isRequired,
   vote: PropTypes.number,
   id: PropTypes.string,
-  whenPostClicked: PropTypes.func
+  whenPostClicked: PropTypes.func,
+  timeStamp: PropTypes.string
 };
 export default Post;
