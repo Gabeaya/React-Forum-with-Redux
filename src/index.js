@@ -8,6 +8,11 @@ import reducer from './reducers/post-list-reducer';
 import { Provider } from 'react-redux';
 
 const store = createStore(reducer);
+//window into our store
+store.subscribe(() =>
+  console.log(store.getState())
+);
+
 
 ReactDOM.render(
   <React.StrictMode>
