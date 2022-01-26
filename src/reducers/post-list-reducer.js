@@ -10,6 +10,24 @@ export default (state = {}, action) =>{
           id: id
         }
       });
+    case 'INCREMENT':
+      return Object.assign({}, state, {
+        [id]: {
+          title: title,
+          submission: submission,
+          vote: vote + 1,
+          id: id
+        }
+      });
+    case 'DECREMENT':
+      return Object.assign({}, state, {
+        [id]: {
+          title: title,
+          submission: submission,
+          vote: vote -1,
+          id: id
+        }
+      });
     default:
       return state;
   }
