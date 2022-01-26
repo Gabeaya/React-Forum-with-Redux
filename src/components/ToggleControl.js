@@ -47,9 +47,16 @@ class ToggleControl extends React.Component {
   }
 
   handleDownVote = (id) => {
-    const selectedPost = this.state.mainPostList.filter(post => post.id ===id)[0];
-    selectedPost.vote -=1;
-    console.log(selectedPost)
+    const { dispatch } = this.props;
+    const { id, title, submission, vote} = newPost;
+    const action = {
+      type: 'DECREMENT',
+      id: id,
+      title: title,
+      submission: submission,
+      vote: vote,
+    }
+    dispatch(action);
     this.setState({selectedPost: selectedPost});
   }
 
