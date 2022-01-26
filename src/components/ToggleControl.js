@@ -47,9 +47,9 @@ class ToggleControl extends React.Component {
     this.setState({selectedPost: selectedPost});
   }
 
-  handleDownVote = (id) => {
-    const { dispatch } = this.props;
-    const { id, title, submission, vote} = newPost;
+  handleDownVote = id => {
+    const { dispatch, mainPostList } = this.props;
+    const { title, submission, vote} = mainPostList[id];
     const action = {
       type: 'DECREMENT',
       id: id,
@@ -58,12 +58,13 @@ class ToggleControl extends React.Component {
       vote: vote,
     }
     dispatch(action);
-    this.setState({selectedPost: selectedPost});
+    // const selectedPost = this.props.mainPostList[id];
+    // this.setState({selectedPost: selectedPost});
   }
 
-  handleUpVote = (id) => {
-    const { dispatch } = this.props;
-    const { id, title, submission, vote} = newPost;
+  handleUpVote = id => {
+    const { dispatch, mainPostList } = this.props;
+    const { title, submission, vote} = mainPostList[id];
     const action = {
       type: 'INCREMENT',
       id: id,
@@ -72,20 +73,21 @@ class ToggleControl extends React.Component {
       vote: vote,
     }
     dispatch(action);
-    this.setState({selectedPost: selectedPost});
+    // const selectedPost = this.props.mainPostList[id];
+    // this.setState({selectedPost: selectedPost});
   }
 
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.selectedPost != null) {
-      currentlyVisibleState = <PostDetail post = {this.state.selectedPost} onClickingDownVote={this.handleDownVote}onClickingUpVote={this.handleUpVote}/>
+      currentlyVisibleState = <PostDetail post = {this.props.mainPostList[this.state.selectedPost.id]} onClickingDownVote={this.handleDownVote} onClickingUpVote={this.handleUpVote}/>
       buttonText = "back to posts";
     } else if(this.state.formVisibleOnPage) {
       currentlyVisibleState= <NewPostForm onNewPostCreation={this.handleAddingNewPostToList}/>
       buttonText = "Back to posts";
     } else{
-      currentlyVisibleState= <PostList postList={this.state.mainPostList} onPostSelection={this.handleChangingSelectedPost}/>
+      currentlyVisibleState= <PostList postList={this.props.mainPostList} onPostSelection={this.handleChangingSelectedPost}/>
       buttonText = "Post something";
 
     }
