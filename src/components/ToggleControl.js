@@ -2,6 +2,7 @@ import React from 'react';
 import NewPostForm from './NewPostForm';
 import PostList from './PostList';
 import PostDetail from './PostDetail';
+import { connect } from 'react-redux';
 
 class ToggleControl extends React.Component {
 
@@ -76,5 +77,7 @@ class ToggleControl extends React.Component {
   }
 
 }
+
+ToggleControl = connect()(ToggleControl);
 
 export default ToggleControl;
