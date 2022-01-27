@@ -2,6 +2,7 @@ import React from "react";
 import { v4 } from 'uuid'; 
 import PropTypes from "prop-types";
 import Moment from "moment";
+
 function NewPostForm(props){
   
   function handleNewPostFormSubmission(event){
