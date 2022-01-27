@@ -21,4 +21,24 @@ describe("rootReducer", () => {
   test('Check that initial state of formVisibleReducer matches root reducer', () => {
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, { type: null }));
   });
+  test('Check that ADD_POST action works for postListReducer and root reducer', () => {
+    const action = {
+      type: 'ADD_POST',
+      title: 'Ryan & Aimen',
+      submission: '4b',
+      vote: 1,
+      timeFrame: 'ya',
+      id: 1
+    }
+    store.dispatch(action);
+    expect(store.getState().mainPostList).toEqual(postListReducer(undefined, action));
+  });
+  
+  test('Check that TOGGLE_FORM action works for formVisibleReducer and root reducer', () => {
+    const action = {
+      type: 'TOGGLE_FORM'
+    }
+    store.dispatch(action);
+    expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, action));
+  });
 });
