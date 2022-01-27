@@ -31,13 +31,14 @@ class ToggleControl extends React.Component {
 
   handleAddingNewPostToList = (newPost) => {
     const { dispatch } = this.props;
-    const { id, title, submission, vote} = newPost;
+    const { id, title, submission, vote, timeStamp} = newPost;
     const action = {
       type: 'ADD_POST',
       id: id,
       title: title,
       submission: submission,
       vote: vote,
+      timeStamp: timeStamp,
     }
     dispatch(action);
     this.setState({formVisibleOnPage:false});
@@ -50,13 +51,14 @@ class ToggleControl extends React.Component {
 
   handleDownVote = id => {
     const { dispatch, mainPostList } = this.props;
-    const { title, submission, vote} = mainPostList[id];
+    const { title, submission, vote, timeStamp} = mainPostList[id];
     const action = {
       type: 'DECREMENT',
       id: id,
       title: title,
       submission: submission,
       vote: vote,
+      timeStamp: timeStamp,
     }
     dispatch(action);
     // const selectedPost = this.props.mainPostList[id];
@@ -65,13 +67,14 @@ class ToggleControl extends React.Component {
 
   handleUpVote = id => {
     const { dispatch, mainPostList } = this.props;
-    const { title, submission, vote} = mainPostList[id];
+    const { title, submission, vote, timeStamp} = mainPostList[id];
     const action = {
       type: 'INCREMENT',
       id: id,
       title: title,
       submission: submission,
       vote: vote,
+      timeStamp: timeStamp,
     }
     dispatch(action);
     // const selectedPost = this.props.mainPostList[id];
