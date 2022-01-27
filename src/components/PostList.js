@@ -15,7 +15,7 @@ function PostList(props) {
           timeStamp={post.timeStamp}
           id={post.id}
           key={post.id} />
-      )}
+      ).sort((a,b) => (b.props.vote - a.props.vote))}
     </React.Fragment>
   );
 }
