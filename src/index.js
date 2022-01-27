@@ -4,10 +4,12 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
-import reducer from './reducers/post-list-reducer';
+// import reducer from './reducers/post-list-reducer'; replace with our root reducer
 import { Provider } from 'react-redux';
+import rootReducer from './reducers/index';
 
-const store = createStore(reducer);
+// const store = createStore(reducer); replace with root reducer
+const store = createStore(rootReducer);
 //window into our store
 store.subscribe(() =>
   console.log(store.getState())
